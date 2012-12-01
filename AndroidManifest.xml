@@ -1,0 +1,44 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tzach.example.exampleorderedbroadcast"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="15" />
+    
+    <uses-permission android:name="bla"/>
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".MyReceiver1"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter android:priority="2" >
+                <action android:name="tzach.example.exampleorderedbroadcast.action1" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".MyReceiver2"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter android:priority="1" >
+                <action android:name="tzach.example.exampleorderedbroadcast.action1" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
